@@ -189,7 +189,6 @@
 /* Collapse / Expand icon */
 #rw_space_organizer .rw_category_title.rw_category_module_category {
   &:before {
-    @include iconFont();
     position: absolute;
     width: 20px;
     height: 20px;
