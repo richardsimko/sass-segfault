@@ -1,0 +1,111 @@
+/**
+ * Mixins: Mixins
+ * Browser Prefixes
+ */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition-transform($ms) {
+  -webkit-transition: -webkit-transform $ms + ms ease;
+  -moz-transition: -moz-transform $ms + ms ease;
+  transition: transform $ms + ms ease;
+}
+
+@mixin transition-delay($ms) {
+  -webkit-transition-delay: $ms;
+  -moz-transition-delay: $ms;
+  transition-delay: $ms;
+}
+
+@mixin transition($type, $ms) {
+  -webkit-transition: $type $ms;
+  -moz-transition: $type $ms;
+  transition: $type $ms;
+}
+
+@mixin transition($property, $ms, $easing){
+  transition: $property $ms $easing;
+  -moz-transition: $property $ms $easing;
+  -webkit-transition: $property $ms $easing;
+}
+
+@mixin translate-transform($tx, $ty, $tz) {
+  -webkit-transform: translate3d($tx, $ty, $tz);
+  -moz-transform: translate3d($tx, $ty, $tz);
+  transform: translate3d($tx, $ty, $tz);
+}
+
+@mixin gradient-background($top, $bottom) {
+  background: $top; // Old browsers
+  background: -webkit-linear-gradient($top, $bottom); // For Safari 5.1 to 6.0
+  background: -moz-linear-gradient($top, $bottom); // For Firefox 3.6 to 15
+  background: -o-linear-gradient($top, $bottom); // For Opera 11.1 to 12.0
+  background: linear-gradient($top, $bottom); // Standard syntax
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$top', endColorstr='$bottom', GradientType=0); // IE6-9
+}
+
+@mixin radial-gradient-background($center, $edge) {
+  background: $center; // Old browsers
+  background: -webkit-radial-gradient(center, ellipse cover, $center 0%, $edge 93%);
+  background: -moz-radial-gradient(center, ellipse cover, $center 0%, $edge 93%);
+  background: -ms-radial-gradient(center, ellipse cover, $center 0%, $edge 93%);
+  background: -o-radial-gradient(center, ellipse cover, $center 0%, $edge 93%);
+  background: radial-gradient(ellipse at center, $center 0%, $edge 93%); // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$center', endColorstr='$edge', GradientType=1);
+}
+
+@mixin blur($radius) {
+  -webkit-filter: blur($radius);
+  -moz-filter: blur($radius);
+  -ms-filter: blur($radius);
+  -o-filter: blur($radius);
+  filter: blur($radius);
+}
+
+@mixin box-sizing($sizing) {
+  -moz-box-sizing: $sizing;
+  -webkit-box-sizing: $sizing;
+  box-sizing: $sizing;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin transform-rotate($deg) {
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin box-shadow($shadow) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin iconFont() {
+  font-family: 'RefinedWikiIcons';
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin sidebarTitle() {
+  color: #707070;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}

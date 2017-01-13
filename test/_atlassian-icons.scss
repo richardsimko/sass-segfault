@@ -1,0 +1,13 @@
+// This is a temporary way of handling icons.
+
+.rw_atlas_icon_page:before {
+  content: '\f183';
+}
+
+.rw_atlas_icon_blogpost:before {
+  content: '\f182';
+}
+
+.rw_atlas_icon_attachment:before {
+  content: '\f10a';
+}

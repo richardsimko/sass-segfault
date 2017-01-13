@@ -1,0 +1,430 @@
+/*
+ * _category-dropdown.scss - [/shared/categories/css/] - General layouts for shared category dropdown view.
+ */
+
+// Category dropdown
+#rw_category_dropdown_wrapper {
+  z-index: 16 !important;
+  background: $theme-dark-bg;
+  top: auto;
+  width: auto;
+  left: auto;
+  margin: 0;
+  position: absolute;
+  @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+  display: table;
+
+  > * {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  #rw_category_dropdown_container {
+    padding: 20px;
+
+    .rw_dd_category {
+      clear: both;
+
+      .rw_dd_category {
+        padding: 15px 0 0 15px;
+      }
+
+      > h2,
+      > h3 {
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: $theme-dark-heading-color;
+
+        .rw_sub_category_link {
+          display: block;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          color: $theme-dark-heading-color;
+          text-decoration: none;
+          &:hover {
+            color: $theme-dark-heading-color-hover;
+          }
+          &.rw_has_expand {
+            margin-left: 30px;
+            padding-left: 10px;
+            cursor: pointer;
+          }
+        }
+        &.rw_new_row {
+          border-top: 5px solid $theme-dark-border-color;
+          padding-top: 25px;
+        }
+      }
+
+      a.rw_item_expand {
+        float: left;
+        height: 16px;
+        width: 16px;
+        cursor: pointer;
+        padding: 7px;
+
+        &:hover {
+          background: $theme-dark-item-bg-hover;
+
+          span:before {
+            color: $theme-dark-icon-color-hover;
+          }
+        }
+
+        span {
+          float: left;
+          height: 16px;
+          width: 16px;
+          line-height: 16px;
+          text-align: center;
+
+          &:before {
+            @include iconFont();
+            font-size: 12px;
+            color: $theme-dark-icon-color;
+          }
+        }
+      }
+
+      &.rw_separator {
+        margin-top: 20px;
+        border-top: 20px;
+        padding-top: 20px;
+        border-top: 4px solid $theme-dark-border-color;
+      }
+    }
+
+    // Info text in category menu
+    .rw_info {
+      color: $theme-dark-secondary-text-color;
+      font-size: 12px;
+    }
+
+    .rw_dd_content {
+      // Collapsible categories
+      &.rw_collapsible .rw_dd_category {
+
+
+        .rw_empty_dropdown {
+          margin-left: 40px;
+          display: block;
+        }
+
+        &.rw_dd_category_collapsed {
+          > .rw_dd_category,
+          > ul {
+            display: none;
+          }
+          .rw_empty_dropdown {
+            display: none;
+          }
+
+          > h2 .rw_item_expand span:before {
+            content: '\e048';
+          }
+        }
+
+        &.rw_dd_category_expanded > h2 .rw_item_expand span:before {
+          content: '\e047';
+        }
+
+        // Adding padding
+        > .rw_dd_category,
+        > ul {
+          padding-left: 30px;
+        }
+
+        h2 .rw_sub_category_link:hover {
+          background: $theme-dark-item-bg-hover;
+        }
+
+      }
+
+      // Custom url for subcategories - external link icon
+      .rw_sub_category_link {
+        .rw_item_left {
+          float: left;
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer;
+
+          .rw_item_logo {
+            &.rw_image_container {
+              width: 28px;
+              height: 28px;
+              top: 0;
+              left: 7px;
+              line-height: 24px;
+              text-align: center;
+              display: inline;
+              padding-right: 5px;
+
+              img {
+                max-width: 24px;
+                max-height: 24px;
+                vertical-align: middle;
+              }
+            }
+          }
+          .rw_item_name {
+            display: inline;
+          }
+          .rw_target_blank {
+            top: 8px;
+            position: relative;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      // Content in multi column
+      &.rw_multi_column {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+
+        .rw_dd_section {
+          display: table-cell;
+          padding-right: 20px;
+          vertical-align: top;
+
+          & ~ .rw_dd_section {
+            padding-left: 20px;
+            margin-left: 20px;
+            border-left: 1px solid $theme-dark-border-color;
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    .rw_expand_all_section {
+      float: left;
+      width: 100%;
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid $theme-dark-border-color;
+      a {
+        color: $theme-dark-heading-color;
+        cursor: pointer;
+        &:hover {
+          color: $theme-dark-heading-color-hover;
+        }
+      }
+    }
+  }
+}
+
+// Active category item
+.rw_category_dropdown_visible {
+  position: relative;
+  z-index: 16;
+}
+
+//
+// Dark theme
+//
+.rw_category_dd_theme_dark {
+  .rw_category_dropdown_visible {
+    background: $theme-dark-bg !important;
+    color: #fff;
+    // span span legacy support
+    span,
+    span span {
+      color: #fff !important;
+    }
+
+    .rw_item_dd {
+
+      &:before {
+        opacity: 0 !important;
+      }
+      &:after {
+        border-color: $theme-dark-icon-color-hover transparent transparent transparent !important;
+      }
+    }
+  }
+
+  #rw_category_dropdown_wrapper {
+    background: $theme-dark-bg;
+
+    #rw_category_dropdown_container {
+
+      .rw_dd_category {
+
+        > h2,
+        > h3 {
+          color: $theme-dark-heading-color;
+
+          a.rw_sub_category_link {
+            color: $theme-dark-heading-color;
+            &:hover {
+              color: $theme-dark-heading-color-hover;
+            }
+          }
+          &.rw_new_row {
+            border-top: 5px solid $theme-dark-border-color;
+          }
+        }
+
+        a.rw_item_expand {
+          &:hover {
+            background: $theme-dark-item-bg-hover;
+            span:before {
+              color: $theme-dark-icon-color-hover;
+            }
+          }
+
+          span {
+            &:before {
+              color: $theme-dark-icon-color;
+            }
+          }
+        }
+      }
+
+      // Info text in category menu
+      .rw_info {
+        color: $theme-dark-secondary-text-color;
+      }
+
+      .rw_dd_content {
+        &.rw_collapsible .rw_dd_category {
+          > h2 .rw_sub_category_link:hover {
+            background: $theme-dark-item-bg-hover;
+          }
+        }
+
+
+        // Content in multi column
+        &.rw_multi_column {
+          .rw_dd_section {
+            & ~ .rw_dd_section {
+              border-left: 1px solid $theme-dark-border-color;
+            }
+          }
+        }
+      }
+
+      .rw_expand_all_section {
+        border-top: 1px solid $theme-dark-border-color;
+        a {
+          color: $theme-dark-heading-color;
+          &:hover {
+            color: $theme-dark-heading-color-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// Light Theme
+// TODO rename to a mor general class
+.rw_category_dd_theme_light {
+
+  .rw_category_dropdown_visible {
+    background: $theme-light-bg !important;
+    color: #666;
+    // span span legacy support
+    span,
+    span span {
+      color: #666 !important;
+    }
+
+    .rw_item_dd {
+      &:before {
+        opacity: 0 !important;
+      }
+      &:after {
+        border-color: #ccc transparent transparent transparent !important;
+      }
+    }
+  }
+
+  #rw_category_dropdown_wrapper {
+    background: $theme-light-bg;
+
+    #rw_category_dropdown_container {
+
+      .rw_dd_category {
+
+        > h2,
+        > h3 {
+          color: $theme-light-heading-color;
+
+          a.rw_sub_category_link {
+            color: $theme-light-heading-color;
+            &:hover {
+              color: $theme-light-heading-color-hover;
+            }
+          }
+          &.rw_new_row {
+            border-top: 5px solid $theme-light-border-color;
+          }
+        }
+
+        a.rw_item_expand {
+          &:hover {
+            background: $theme-light-item-bg-hover;
+            span:before {
+              color: $theme-light-icon-color-hover;
+            }
+          }
+
+          span {
+            &:before {
+              color: $theme-light-icon-color;
+            }
+          }
+        }
+
+        &.rw_separator {
+          border-color: $theme-light-border-color;
+        }
+      }
+
+      // Info text in category menu
+      .rw_info {
+        color: $theme-light-secondary-text-color;
+      }
+
+      .rw_dd_content {
+        &.rw_collapsible .rw_dd_category {
+          > h2 .rw_sub_category_link:hover {
+            background: $theme-light-item-bg-hover;
+          }
+        }
+
+        // Content in multi column
+        &.rw_multi_column {
+          .rw_dd_section {
+            & ~ .rw_dd_section {
+              border-left: 1px solid $theme-light-border-color;
+            }
+          }
+        }
+      }
+
+      .rw_expand_all_section {
+        border-top: 1px solid $theme-light-border-color;
+        a {
+          color: $theme-light-heading-color;
+          &:hover {
+            color: $theme-light-heading-color-hover;
+          }
+        }
+      }
+    }
+  }
+}

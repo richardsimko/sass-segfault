@@ -1,0 +1,538 @@
+/*
+ * Admin category organizer section
+ */
+.rw_input_content {
+  ul.rw_module_templates {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+
+    li.rw_module_template {
+      width: $category-template-width + px;
+      float: left;
+      line-height: 1.4;
+      margin: 11px;
+      padding: 10px;
+      min-height: 120px;
+
+      &:hover {
+        background: $category-template-hover-background;
+        cursor: pointer;
+      }
+
+      &.rw_selected {
+        margin: 10px;
+        background: $category-template-selected-background;
+        border: 1px solid $highlight-color;
+        box-shadow: 0 0 5px $highlight-color;
+      }
+
+      .rw_icon {
+        font-size: 32px;
+        position: relative;
+        left: $category-template-width / 2 - $category-template-icon-size / 2 + px;
+      }
+
+      .rw_module_template_meta {
+        text-align: center;
+      }
+    }
+  }
+}
+
+#rw_input_category_key {
+  text-transform: lowercase;
+}
+
+// TODO - sass this file
+/**************************************************
+*
+*   Organize Space styles
+*
+**************************************************/
+#rw_space_organizer {
+  float: left;
+  width: 950px;
+  /* Prevent selection */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+
+  .rw_help_button {
+    float: right;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: $iconfont-size + px;
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: #666;
+    }
+  }
+
+  /* Documentation, feedback, bug buttons */
+  #rw_feedback_wrapper {
+    display: inline-block;
+  }
+  #rw_feedback_wrapper > a.aui-button,
+  > a.aui-button {
+    margin-top: 15px;
+    margin-left: 15px;
+    display: inline-block;
+  }
+}
+
+/**************************************************
+*
+*   Menu bar. Collpase, Expand, Add Category
+*
+**************************************************/
+
+#rw_space_organizer .rw_collapse_button,
+#rw_space_organizer .rw_expand_button {
+  float: left;
+  margin-right: 10px;
+  margin-top: 12px;
+  padding: 0 8px;
+  border-radius: 3px;
+  line-height: 24px;
+  display: block;
+  color: #999;
+  cursor: pointer;
+
+  &:hover {
+    background: #ddd;
+    color: #333;
+  }
+
+}
+
+/**************************************************
+*
+*   Categorized section
+*
+**************************************************/
+
+#rw_categorized_section {
+  margin: 15px 0px 0px 0px;
+  display: block;
+  float: left;
+  width: 600px;
+
+  h3 {
+    margin: 0px 0px 15px 0px;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    a {
+      color: #999;
+      text-decoration: none;
+      font-size: 11px;
+      text-transform: capitalize;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+
+#rw_categorized_section .rw_categories_list,
+#rw_categorized_section .rw_subcategories_list {
+  list-style: none;
+  min-height: 10px;
+  padding-left: 30px;
+}
+
+#rw_categorized_section .rw_categories_list {
+  padding-left: 0;
+}
+
+#rw_categorized_section .rw_categories_list > .rw_category_list_item {
+  margin-bottom: 10px;
+}
+
+#rw_categorized_section .rw_categories_list:empty:after {
+  background: #ededed;
+  color: #ababab;
+  content: "No categories found";
+  display: block;
+  font-size: 11px;
+  line-height: 26px;
+  min-height: 26px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/**************************************************
+*
+*   Abstract category title sections
+*
+**************************************************/
+
+/* Extra icons */
+#rw_space_organizer .rw_category_title .rw_icon_button {
+  float: right;
+  margin: 3px;
+}
+
+#rw_space_organizer .rw_category_title div {
+  color: #333;
+}
+
+/* Collapse / Expand icon */
+#rw_space_organizer .rw_category_title.rw_category_module_category {
+  &:before {
+    @include iconFont();
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    content: '\e047';
+    top: 5px;
+    left: 9px;
+    text-align: center;
+    color: #999;
+    font-size: $iconfont-size-small + px;
+  }
+
+  &:hover:before {
+    color: #666;
+  }
+}
+#rw_space_organizer .rw_closed .rw_category_title.rw_category_module_category {
+  &:before {
+    content: '\e048';
+  }
+
+  &:hover:before {
+    color: #666;
+  }
+}
+
+
+#rw_space_organizer .rw_category_title {
+  padding-left: 30px;
+  position: relative;
+  color: #999;
+  display: block;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+#rw_space_organizer .rw_category_title:hover {
+  color: #999;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #ededed;
+}
+
+#rw_space_organizer .rw_category_title .rw_menu_item {
+  float: right;
+  margin-bottom: -7px;
+  width: 32px; /* IE7 Fix */
+}
+
+#rw_space_organizer .rw_category_title .rw_menu_item.rw_left {
+  float: left;
+}
+
+#rw_space_organizer .rw_closed .rw_subcategories_list,
+#rw_space_organizer .rw_closed .rw_category_sortable_list {
+  display: none;
+}
+
+/* Highlighted */
+#rw_space_organizer .rw_highlight > div > .rw_category_title {
+  background-color: #fcf1cb;
+}
+
+/**************************************************
+*
+*   Organizer content section
+*
+**************************************************/
+.rw_organizer_content_section {
+  display: block;
+  position: relative;
+  padding: 20px;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+
+  h3 {
+    margin: 0px 0px 15px 0px;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  ul.rw_admin_content_list {
+    background: white;
+    border: 1px #e0d8d8 solid;
+    overflow-y: auto;
+    padding: 5px;
+    > li {
+      border-bottom: 1px #ccc dotted;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .rw_undroppable_overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
+    .rw_icon {
+      font-size: 3rem;
+      display: block;
+      margin: auto 0;
+      padding-top: 2rem;
+    }
+  }
+
+  &.rw_disabled .rw_undroppable_overlay {
+    display: block;
+  }
+}
+
+#rw_uncategorized_section {
+  float: left;
+  margin: 15px 0 0 20px;
+  display: block;
+  width: 280px;
+  top: 0px;
+
+  .rw_organizer_content_section {
+    padding: 14px;
+
+    .rw_search_query {
+      float: none;
+      margin-bottom: 15px;
+      background-color: white;
+      width: 212px;
+    }
+
+    ul.rw_admin_content_list:empty:after {
+      content: attr(data-empty-text);
+    }
+
+    ul {
+      height: 305px;
+    }
+  }
+}
+
+#rw_blog_portal_section {
+
+  ul.rw_admin_content_list:empty:after {
+    content: attr(data-empty-text);
+  }
+
+  ul.rw_admin_content_list {
+    min-height: 50px;
+  }
+
+  .rw_placeholder {
+    display: none;
+  }
+}
+
+/**************************************************
+*
+*   Spaces list in categorized section
+*
+**************************************************/
+
+#rw_space_organizer .rw_categories_list ul.rw_admin_content_list {
+  margin-left: 30px;
+}
+
+/**************************************************
+*
+*   General dragable, droppable, sortable styles
+*
+**************************************************/
+
+#rw_space_organizer .rw_droppable_hover {
+  background-color: #ddd !important;
+}
+
+#rw_space_organizer .rw_draggable {
+  cursor: pointer;
+}
+
+#rw_space_organizer .rw_category_droppable {
+  cursor: pointer;
+  padding-left: 5px;
+
+  > .rw_icon {
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    position: absolute;
+    left: 5px;
+  }
+}
+
+#rw_space_organizer .rw_empty_dropspace {
+  height: 10px;
+}
+
+#rw_space_organizer .rw_empty_dropspace_for_subcategory_wrapper,
+#rw_space_organizer .rw_empty_dropspace_for_category_wrapper {
+  height: 10px;
+  margin: 3px 0;
+}
+
+/* Hide the admin buttons when in draggable*/
+#rw_space_organizer .rw_draggable_start .rw_icon_button,
+#rw_space_organizer .rw_draggable_start .rw_menu_item {
+  display: none;
+}
+
+#rw_space_organizer .rw_draggable_start {
+  height: 0;
+}
+
+/* Placeholders */
+#rw_space_organizer .rw_categories_list > .rw_placeholder {
+  height: 10px;
+  margin: 5px 0px;
+  background: #ddd;
+}
+
+#rw_space_organizer .rw_categories_list > .rw_sortable_placeholder {
+  border: 1px dotted #bdbdbd;
+  opacity: 0.6;
+  background: #ddd;
+  height: 10px;
+  margin-bottom: 20px;
+}
+
+/**************************************************
+*
+*   Color codes of dufferent types
+*
+**************************************************/
+
+#rw_space_organizer .rw_type_category {
+  border-left: 4px solid #de4a96;
+}
+
+#rw_space_organizer .rw_type_sub_category {
+  border-left: 4px solid #94c211;
+}
+
+#rw_space_organizer .rw_tag {
+  border-radius: 4px 4px 4px 4px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
+#rw_space_organizer .rw_type_space .rw_archived_title {
+  margin-left: 7px;
+  color: #ccc;
+  font-size: 11px;
+}
+
+#rw_space_organizer .rw_type_link .rw_tag {
+  background: #e8622e;
+}
+
+#rw_space_organizer .rw_type_space .rw_tag {
+  background: #1898c4;
+}
+
+#rw_space_organizer .rw_type_space.rw_blog_space .rw_tag {
+  background: #ebd406;
+}
+
+/* Selected space */
+#rw_space_organizer .rw_selected {
+  background: #e2edf8;
+}
+
+#rw_space_organizer .rw_selected .rw_name {
+  color: #3d74ac;
+}
+
+/**************************************************
+*
+*   Typ declaration, help section
+*
+**************************************************/
+
+#rw_organize_type_declaration {
+  display: block;
+  padding: 10px;
+
+  div {
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 10px;
+    padding-left: 5px;
+    color: #999;
+    .rw_tag {
+      margin-left: -5px;
+    }
+  }
+}
+
+/**************************************************
+*
+*   AUI dialog stuff
+*
+**************************************************/
+
+.rw_admin_custom_url {
+  margin-left: 165px;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #ededed;
+}
+
+#rw_category_permission_group {
+  padding: 20px;
+  background-color: #f6f6f6;
+  .rw_input_container {
+    margin: 0;
+    .rw_input_desc {
+      margin-top: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+.aui-dialog .dialog-panel-body {
+  position: relative;
+}
+
+.rw_delete_category_logo:hover {
+  text-decoration: none;
+  color: black;
+}
+
+#rw_picker_wrapper {
+  z-index: 10000 !important;
+}
+
+.rw_viewer_wrapper {
+  z-index: 10001;
+}

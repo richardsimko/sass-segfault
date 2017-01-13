@@ -1,0 +1,901 @@
+/**
+ * Layoutboard / layoutboard
+ *
+ * SASS the whole file!
+ */
+
+#rw_layout_board_container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #fff;
+}
+
+/* Loader */
+#rw_layout_board_container .rw_loader_container {
+  padding: 100px;
+  text-align: center;
+  background: #ededed;
+  margin: -10px;
+  border-radius: 5px;
+}
+
+/* IE 8 Fix for scrolling */
+.rw_layout_board_editor {
+  overflow: visible !important;
+}
+
+// Layout board editor fix
+.rw_layout_board_editor .rw_global_section {
+  margin: 0 !important;
+}
+
+/* Remove menu bar when in edit mode */
+.rw_layout_board_editor #rw_menu_bar,
+.rw_layout_board_editor #rw_menu_bar_wrapper {
+  display: none;
+}
+
+/* Layout board toolbar */
+.rw_layout_board_toolbar {
+  margin: -11px -11px 25px -11px;
+  padding: 0px 20px 20px 20px;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  position: relative;
+  box-shadow: 0 2px 3px #ddd;
+}
+
+/* Confluence 5.5 fix */
+.rw_layout_board_toolbar .aui-toolbar2 {
+  margin-top: 10px;
+}
+
+.rw_layout_board_toolbar h1 {
+  float: left;
+  line-height: 20px;
+  margin: 15px 40px 0 0;
+  color: #999;
+  font-size: 20px;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rw_has_unsaved_changes .rw_unsaved_changes {
+  display: inline-block;
+}
+
+.rw_layout_board_toolbar .aui-buttons {
+  margin: 10px 0px 0px 0px;
+}
+
+.rw_layout_board_toolbar .aui-buttons .aui-button {
+  margin: 0px;
+}
+
+.rw_layout_board_toolbar .rw_template_button {
+  margin-left: 15px;
+}
+
+.rw_layout_board_toolbar .aui-buttons span.rw_icon {
+  margin-right: 5px;
+}
+
+.rw_layout_board_toolbar.rw_collapsed .aui-buttons span {
+  display: none;
+}
+
+.rw_layout_board_toolbar.rw_collapsed .aui-buttons span.rw_icon {
+  display: inline-block;
+  padding: 0;
+}
+
+/* Different layout board tags */
+.rw_layout_board_mode {
+  display: inline-block;
+  background: #239aee;
+  color: #fff;
+  padding: 0px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  text-transform: uppercase;
+
+  .rw_layout_board_toolbar & {
+    margin: 14px 0px 0px 15px;
+  }
+
+  span {
+    display: inline-block;
+    background: #0e74bc;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 10px;
+    margin: 0px -10px 0px 10px;
+    cursor: pointer;
+    border-radius: 0px 3px 3px 0px;
+
+    &:hover {
+      background: #094f81;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  // Custom settings
+  &.rw_custom {
+    background: #f38522;
+
+    span {
+      background: #bf610d;
+
+      &:hover {
+        background: #994f0c;
+      }
+    }
+  }
+
+  // Space types
+  &.rw_space_type {
+    background: #60c62f;
+
+    span {
+      background: #3b9b0c;
+
+      &:hover {
+        background: #287104;
+      }
+    }
+  }
+
+  .rw_has_unsaved_changes & {
+    display: none;
+  }
+}
+
+/* AUI fix! */
+.rw_layout_board_toolbar .aui-toolbar2-secondary {
+  position: static !important;
+}
+
+/* Board in edit mode  */
+.rw_layout_board .rw_board {
+  border-spacing: 10px;
+  margin-top: -10px;
+
+  .rw_board_column {
+    padding-right: 0;
+  }
+}
+
+.rw_layout_board .rw_layout_section {
+  position: relative;
+  border: 2px dashed #ededed;
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+  min-height: 100px;
+}
+
+/* Selected column */
+.rw_layout_board .rw_layout_section.rw_selected {
+  border-color: #999;
+}
+
+.rw_layout_board .rw_add_item_container {
+  background: #f6f6f6;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+  visibility: hidden;
+  width: 150px
+}
+
+.rw_layout_board .rw_board_column:hover .rw_add_item_container {
+  visibility: visible;
+}
+
+/* Icons in the aui-buttons */
+.rw_layout_board .aui-button .icon {
+  padding-right: 7px;
+  height: 16px;
+}
+
+.rw_layout_board .aui-button .rw_icon_layout_16 {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKFJREFUeNpinDlzJgMIsADxfxADIIAYMUQAAggkAmbAAAuUZoQJAAQQXA8MMCGxQVr5mRjQALIA2ByAAILZwsiAHfCjmwmjYZiBiYEAYMKiGxl8AAggDH/gczU28J8JzWHobOIdSb4CjOhBD1UWLH5HAQABhhHjpAImJGtJxQLIfmDAElWMOKIPxZ9MDBSCgTeABZffCIihuICRTMs/gvQCAAkAIuSZPtWcAAAAAElFTkSuQmCC);
+}
+
+.rw_layout_board .aui-button .rw_icon_clock_16 {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbFJREFUeNpiTEtLYwCCD0wgwtjYmB8ggBiBIm5Azi6QyC6gCANAAMFFgJz/Z8+eZQTLMEAAI0gFQAAxQk05DsTHgLiYBUjwAGUsQaJALTtBWr4wIEAYSKAYSaAWIIBgZiwG4kw01SCFa1mgFoDNBNkKBP9BLgCa3wukLZigtiODOyBFUMVWLFCjFIB4JlBXPZA2AeJkIO4B4hKAAIK5AQR6oRLXgbge5mEmqO5iKBaAuucY1OEMICtmArE7mgO/QH3lxgQ1DhsAKWpkgtqJDJihpoGAJhPUYTDgCcR/gNgVyp8LUiAFDXgQtQPkBiDeDXM4yJElUD8/AyqaCzIWZDcQp4N0AAQYcjiAvJsDxLpAvBPqVZj7QJqsQL4F4stAPAWIH8CCgQFqw3OobQxInoCBEyAMdEEfUkRLgtQzQWPgGZRGB/+hGB3A9bBAQ0megQgAcxk0wEDh8RAWD5oE9F4FYg80MZCe67CYBoUqD0wGagMDNErYobblIGnmgeqpZ4GmultAPB2IL0DTFnLO+AXEoMDrAxrMA40+Ayj9ADkaYcANGl1WSF67Do3WnUj5GgwAgLh9CM7qAxUAAAAASUVORK5CYII=);
+}
+
+.rw_layout_board .aui-button .rw_icon_attachment_16 {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEX///9wcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHAms8TnAAAADXRSTlMAESIzRFVmd4iqzN3uD+kkwgAAAD9JREFUCFtjYEAA9jMNEEaU0DIIYzGDNS+YcYGBF51xgQjGYRsI46L3FlkwYzoDQyaYYZ3AthnMYJ5704ABAQBGLhPTDIxZIAAAAABJRU5ErkJggg==);
+}
+
+/* No padding between columns*/
+.rw_layout_board .rw_board_column {
+  padding: 0px;
+}
+
+/**************************************************
+*
+*   LayoutBoard Items
+*
+**************************************************/
+
+.rw_layout_board .rw_item_board {
+  background: #ededed;
+  border: 2px solid #ededed;
+  padding: 20px;
+  margin: 10px 10px 20px 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.rw_layout_board .rw_item_board:hover {
+  border-color: #f58928;
+  box-shadow: 0 0 10px #ababab;
+  cursor: move;
+}
+
+.rw_layout_board .rw_item_board .rw_item_operations {
+  display: block;
+  margin-top: 20px;
+}
+
+/**************************************************
+*
+*   Layout boards dialogs
+*
+**************************************************/
+#rw_popup_editor_dialog .dialog-panel-body {
+  padding: 0px;
+  overflow: hidden;
+}
+
+#rw_popup_preview_dialog .dialog-panel-body {
+  padding: 0px;
+  background: #f6f6f6;
+  overflow: hidden;
+}
+
+/**************************************************
+*
+*   Board Layout Mode
+*
+**************************************************/
+.rw_layout_board.rw_layout_mode {
+
+}
+
+.rw_layout_board.rw_layout_mode .rw_layout_board_content {
+  margin: 20px auto 40px;
+  width: 1000px;
+}
+
+.rw_layout_board.rw_layout_mode .rw_board {
+  border-spacing: 0px;
+  display: block;
+  margin-top: 0px;
+  position: relative;
+}
+
+.rw_layout_mode .rw_layout_section {
+  display: inline-block;
+  height: 200px;
+  text-align: center;
+  margin: 10px;
+}
+
+/* Heading styling */
+.rw_layout_mode .rw_layout_section h1 {
+  margin-top: 80px;
+  color: #ccc;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+/* Add section button */
+.rw_layout_mode .rw_add_section_button {
+  position: absolute;
+  top: 100px;
+  right: -50px;
+}
+
+.rw_layout_mode .rw_layout_button_container {
+  text-align: center;
+  padding: 10px;
+}
+
+.rw_layout_mode .rw_add_top_section_button {
+  margin: 0px auto;
+}
+
+.rw_layout_mode .rw_add_bottom_section_button {
+  margin: 0px auto;
+}
+
+/* Remove section button */
+.rw_layout_mode .rw_remove_section_button {
+  position: absolute;
+  padding: 0px;
+  height: 20px;
+  width: 20px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 20px;
+  border-radius: 20px;
+  background: #ccc;
+  right: 10px;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+.rw_layout_mode .rw_remove_section_button:hover {
+  background: #ababab;
+}
+
+.rw_layout_mode .rw_layout_section:hover .rw_remove_section_button {
+  display: block;
+}
+
+.rw_layout_mode .rw_resizing .rw_remove_section_button {
+  display: none !important;
+}
+
+/* Section has content tag*/
+.rw_layout_mode .rw_section_has_content {
+  position: absolute;
+  padding: 0px 10px;
+  height: 20px;
+  color: #fff;
+  line-height: 20px;
+  border-radius: 20px;
+  background: #ccc;
+  right: 10px;
+  top: 10px;
+  display: none;
+}
+
+.rw_layout_mode .rw_section_has_content:hover {
+  background: #ababab;
+}
+
+.rw_layout_mode .rw_layout_section:hover .rw_section_has_content {
+  display: block;
+}
+
+.rw_layout_mode .rw_resizing .rw_section_has_content {
+  display: none !important;
+}
+
+/* Dragable handle */
+.rw_layout_board .ui-resizable-e {
+  cursor: ew-resize;
+  right: -22px;
+  width: 20px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAUCAYAAAHD6ZzAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGZJREFUeNpi/P//PwMIMDFAAZwBEEAMICkmuBBAAIG5M2fO3AyiGWHaQAAggBhxm4HJAAggFJ2YdmITnDVr1ma8KrGaCRBA5Fn0li7aybMIIMCwqsTrIpIVgoIa2XGUW019Eweh1QDZzUzw+Le5LQAAAABJRU5ErkJggg==") no-repeat center center;
+}
+
+/**************************************************
+*
+*   Board Version Mode
+*
+**************************************************/
+.rw_layout_board.rw_version_mode {
+
+}
+
+.rw_layout_board.rw_version_mode .rw_layout_board_content {
+  padding: 10px 20px 20px 20px;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions {
+  display: table;
+  width: 100%;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions li {
+  display: table-row;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions li:nth-child(even) {
+  background: #f6f6f6;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions li > div {
+  display: table-cell;
+  vertical-align: top;
+  padding: 10px 20px;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions .rw_item_version {
+  color: #ccc;
+  font-size: 30px;
+  width: 1%;
+  padding-left: 40px;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions .rw_item_date {
+  color: #999;
+  width: 1%;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions .rw_item_author {
+  width: 1%;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions li.rw_heading div {
+  font-size: 14px;
+  font-weight: bold;
+  color: #999;
+}
+
+.rw_layout_board.rw_version_mode ul.rw_versions .rw_item_comment {
+  color: #999;
+  width: 1%;
+}
+
+/**************************************************
+*
+*   Space Layout Board
+*
+**************************************************/
+
+/* The left column  */
+/* .rw_space_board .rw_board_column:nth-child(2), */
+.rw_space_board .rw_layout_board .rw_left_column_board {
+  float: left;
+  display: block;
+  width: 420px !important;
+  min-height: 700px;
+  margin: 0px;
+}
+
+.rw_space_board .rw_layout_board .rw_left_column_board ul.rw_layout_section {
+  min-height: 700px;
+}
+
+.rw_space_board .rw_layout_board .rw_right_column_board {
+  display: block;
+  margin: 8px 0px 20px 450px;
+  width: auto !important;
+}
+
+.rw_layout_board_preview .rw_space_board_text,
+.rw_layout_board_preview .rw_space_board_title {
+  margin-left: 0px !important;
+}
+
+.rw_space_board .rw_layout_board .rw_board_column > ul {
+  min-height: 50px;
+}
+
+.rw_space_board .rw_layout_board .rw_layout_control_panel {
+  float: none;
+}
+
+/* Space sections heading */
+.rw_space_board .rw_layout_board .rw_board_column ul.rw_layout_section:before {
+  background: #fff;
+  color: #ccc;
+  padding: 0 10px;
+  position: absolute;
+  top: -10px;
+  z-index: 2;
+}
+
+.rw_space_board .rw_layout_board .rw_space_board_position_0 ul.rw_layout_section:before {
+  content: "Left column";
+}
+
+.rw_space_board .rw_layout_board .rw_space_board_position_1 ul.rw_layout_section:before {
+  content: "Page Header";
+}
+
+.rw_space_board .rw_layout_board .rw_space_board_position_2 ul.rw_layout_section:before {
+  content: "Page top";
+}
+
+.rw_space_board .rw_layout_board .rw_space_board_position_3 ul.rw_layout_section:before {
+  content: "Page bottom";
+}
+
+.rw_space_board .rw_layout_board .rw_space_board_position_4 ul.rw_layout_section:before {
+  content: "Page Footer";
+}
+
+.rw_layout_board .rw_board .rw_space_board_title {
+  display: block;
+  color: #ccc;
+  margin: 8px 0px 20px 450px;
+  width: auto !important;
+}
+
+.rw_layout_board .rw_board .rw_space_board_text {
+  display: block;
+  background: #f6f6f6;
+  padding: 15px;
+  color: #ababab;
+  line-height: 20px;
+  border-radius: 5px;
+  margin: 8px 0px 20px 450px;
+  width: auto !important;
+}
+
+.rw_layout_board .rw_board .rw_menu_settings {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.rw_layout_board .rw_board .rw_space_settings {
+  display: block;
+  margin: 8px 0px 20px 450px;
+  width: auto !important;
+}
+
+.rw_layout_board .rw_board .rw_space_setting {
+  display: inline-block;
+  border: 1px solid #ddd;
+  color: #ededed;
+  padding: 10px 50px 10px 10px;
+  background: #f6f6f6;
+  color: #333;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+  line-height: 20px;
+
+  &:hover {
+    border: 1px solid #ccc;
+    background: #ededed;
+  }
+
+  &.rw_block {
+    display: block;
+  }
+
+  .rw_help_button {
+    float: left;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: $iconfont-size + px;
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: #666;
+    }
+  }
+}
+
+.rw_layout_board .rw_board .rw_space_settings .rw_space_setting:last-child {
+  margin-right: 0px;
+}
+
+// In blog space layout
+// Hide the left column
+#rw_layout_board_container.rw_blog_layout .rw_layout_board {
+  .rw_right_column_board,
+  .rw_space_settings,
+  .rw_space_board_title,
+  .rw_space_board_text{
+    margin-left: 0px;
+  }
+  .rw_space_board_position_0,
+  .rw_spacesettings_children {
+    display: none;
+  }
+}
+
+/**************************************************
+*
+*   Create item dialog
+*
+**************************************************/
+
+.rw_layout_board_dialog .rw_board.rw_primary {
+
+}
+
+.rw_layout_board_dialog .rw_board.rw_secondary {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 3px dashed #ededed;
+}
+
+.rw_layout_board_dialog .rw_board.rw_secondary .rw_board_column {
+  text-align: center;
+}
+
+.rw_layout_board_dialog ul.rw_quicklinks li {
+  padding: 5px 10px;
+}
+
+.rw_layout_board_dialog ul.rw_quicklinks li:hover {
+  cursor: pointer;
+  background: #ededed;
+}
+
+.rw_layout_board_dialog ul.rw_quicklinks .rw_item_icon img {
+  height: 48px;
+  width: 48px;
+}
+
+.rw_layout_board_dialog ul.rw_quicklinks .rw_item_content {
+  line-height: 48px;
+  color: #999;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**************************************************
+*
+*   Macro Preview
+*
+**************************************************/
+
+.rw_item_board .rw_macro_preview {
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  margin: 0px 0px 10px 0px;
+  min-height: 60px;
+  overflow: hidden;
+  box-shadow: 0 0 3px #ccc;
+  position: relative;
+}
+
+.rw_item_board .rw_macro_preview:last-child {
+  margin-bottom: 0px;
+}
+
+/* Icon */
+.rw_item_board .rw_macro_preview .rw_item_icon {
+  float: left;
+  height: 40px;
+  margin: 10px;
+  overflow: hidden;
+  width: 40px;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_icon img {
+  width: 40px;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_icon span {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: -20px 0px 0px -20px;
+  background-repeat: no-repeat;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_content {
+  margin-left: 56px;
+  line-height: 60px;
+  font-size: 18px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_content.rw_has_edit {
+  margin-right: 40px;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_body {
+  background: #ededed;
+  box-shadow: 0 0 2px #ddd inset;
+  color: #999;
+  font-size: 11px;
+  margin: 10px;
+  padding: 6px 10px;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_parameters {
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+  color: #999;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_parameters ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_parameters li {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_edit,
+.rw_item_board .rw_macro_preview .rw_item_edit div {
+  float: right;
+  width: 40px;
+  height: 60px;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_edit div {
+  background: url(images/icons_menu_bar.png) 12px -480px no-repeat;
+  opacity: 0.4;
+}
+
+.rw_item_board .rw_macro_preview .rw_item_edit div:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+/**************************************************
+*
+*   Images Preview
+*
+**************************************************/
+
+.rw_item_board .rw_image_preview {
+  margin: 0px 0px 10px 0px;
+  display: block;
+}
+
+.rw_item_board .rw_image_preview > div {
+  background: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 0 3px #ccc;
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  color: #999;
+  box-sizing: border-box;
+  position: relative;
+
+  &:after {
+    content: attr(data-file-name);
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    line-height: 20px;
+    margin-top: -10px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .rw_img_container {
+    height: 80px;
+    width: 100%;
+    float: left;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/** Thumb of an image */
+.rw_item_board .rw_image_preview img {
+  max-height: 80px;
+  max-width: 100%;
+  float: left;
+}
+
+/**************************************************
+*
+*   Content Preview
+*
+**************************************************/
+
+.rw_item_board .rw_content_preview {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px #ccc inset;
+  color: #999;
+  font-size: 11px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  max-height: 100px;
+}
+
+/* More preview */
+.rw_item_board .rw_more_preview {
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 3px #ccc;
+  color: #999;
+  font-size: 22px;
+  height: 20px;
+  line-height: 9px;
+  margin: 0 0 10px;
+  overflow: hidden;
+  text-align: center;
+  width: 50px;
+}
+
+/**************************************************
+*
+*   Preview Layout Board
+*
+**************************************************/
+
+.rw_layout_board_preview .rw_board {
+  margin-bottom: 15px;
+}
+
+.rw_layout_board_preview .rw_board_column {
+  padding-right: 25px;
+}
+
+.rw_layout_board_preview .rw_board_column:last-child {
+  padding-right: 0px;
+}
+
+.rw_layout_board_preview .rw_space_setting {
+  margin: 10px 0px;
+}
+
+.rw_layout_board_preview_cover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/**************************************************
+*
+*   Layout board list
+*
+**************************************************/
+
+#rw_layout_board_list_dialog ul {
+  margin-top: 15px;
+}
+
+#rw_layout_board_list_dialog ul li {
+  padding: 10px;
+}
+
+#rw_layout_board_list_dialog ul li:nth-child(odd) {
+  background: #f6f6f6;
+}
+
+#rw_layout_board_list_dialog .rw_layout_board_mode {
+  margin: 0px 15px;
+}
+
+
+/**************************************************
+*
+*   Layout board list
+*
+**************************************************/
+#rw_layout_board_add_template_dialog {
+  #rw_form_key {
+    text-transform: lowercase;
+  }
+}
+
+// IE fix for space layout editor. Atlassian adds overflow hidden for IEs when editor is available
+body.edit-space-layout-mode {
+  overflow: inherit !important;
+}

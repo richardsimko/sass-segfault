@@ -1,0 +1,148 @@
+/**
+ * Config
+ */
+
+// --- Constants ---
+
+$button-height: 30;
+
+$highlight-color: #65dcfe;
+$text-color: #333;
+$text-secondary-color: #999;
+
+$link-color: #333;
+
+// Header
+$header-row-height: 50;
+$header-row-space: 10;
+$header-logo-max-width-small: 60;
+$header-logo-max-width: 120;
+$header-logo-max-width-large: 200;
+$header-right-width: 220;
+$header-right-with-menu-width: 456;
+$header-right-with-menu-search-width: 150;
+$header-spacing-height: 25;
+
+// BG Partial
+$bg-partial-bg-height: 300;
+
+
+// backgrounds
+$body-bg-grey: #ededed;
+$body-bg-grey-lighter: #f6f6f6;
+$body-bg-white: #ffffff;
+$background-corners-rounded: 10;
+
+// Shadow
+$background-shadow-height: 450;
+$background-shadow-component-size: 20;
+$background-shadow-margin-top: 80;
+
+// border color
+
+// Content
+$content-spacing: 20;
+$content-border-color: #dddddd;
+$content-border-size: 1;
+$content-corners-rounded: 6;
+$content-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+
+
+// Dashboard spacing
+$dashboard-spacing: 20;
+
+// Layout board
+$layoutboard-item-padding: 25;
+
+
+// Content toolbar
+$content-toolbar-item-size: $button-height;
+$content-toolbar-item-bg: #ededed;
+$content-toolbar-item-bg-hover: #ddd;
+$content-toolbar-item-color: #999;
+
+// Iconfont
+$iconfont-size-large: 22;
+$iconfont-size: 18;
+$iconfont-size-medium:  16;
+$iconfont-size-small:  12;
+$iconfont-size-xsmall:  9;
+
+// Admin category organizer
+// Templates
+$category-template-width: 110;
+$category-template-icon-size: 32;
+
+$category-template-hover-background: #eee;
+$category-template-selected-background: #fff;
+
+
+// Category menu (_category.scss)
+$category-menu-line-height: 1.3;
+$category-menu-height: 40;
+$category-menu-padding-horizontal: 0;
+$category-logo-padding-left: 40;
+$image-container-width: 28;
+$image-container-height: 28;
+$image-container-left: 7;
+$image-container-line-height: 24;
+$image-container-img-max-width: 24;
+$image-container-img-max-height: 24;
+$category-menu-v2-min-width: 300;
+$category-menu-scroll-bar-height: 500;
+$category-menu-scroll-container-width: 18;
+$category-menu-scroll-container-padding: 12;
+$dashboard-button-link-height: 20;
+$dashboard-button-link-line-height: 20;
+
+
+// Theme Editor Fonts
+$editor-fonts: Helvetica, Arial, sans-serif;
+
+
+// Dark theme
+$theme-dark-item-bg-hover: #333;
+$theme-dark-icon-color: #666;
+$theme-dark-icon-color-hover: #999;
+
+// Light theme
+$theme-light-item-bg-hover: #ededed;
+$theme-light-icon-color: #ccc;
+$theme-light-icon-color-hover: #999;
+
+// Menu bar
+$menu-bar-height: 50;
+$menu-bar-padding: 10;
+$menu-bar-title-size: 20;
+$menu-bar-link-color: #999;
+$menu-bar-link-bg-hover: #ddd;
+$menu-bar-link-color-hover: #333;
+
+$menu-bar-transparent-link-color: rgba(255,255,255,0.6);
+$menu-bar-transparent-link-bg-hover: rgba(0,0,0,0.2);
+$menu-bar-transparent-link-color-hover: #fff;
+$menu-bar-transparent-aui-color: rgba(0, 0, 0, 0.1);
+$menu-bar-transparent-aui-hover-color: rgba(0, 0, 0, 0.2);
+$menu-bar-transparent-bg: rgba(0,0,0,0.2);
+
+$menu-bar-transparent-dark-link-color: rgba(255,255,255,0.8);
+$menu-bar-transparent-dark-link-bg-hover: rgba(50,50,50,0.8);
+$menu-bar-transparent-dark-link-color-hover: #fff;
+$menu-bar-transparent-dark-aui-color: rgba(100, 100, 100, 0.5);
+$menu-bar-transparent-dark-aui-hover-color: rgba(50, 50, 50, 0.8);
+$menu-bar-transparent-dark-bg: rgba(0,0,0,0.5);
+
+$menu-bar-closed-height: 10;
+
+
+  // Space menu
+$space-menu-height: 40;
+$space-menu-icon-width: 30;
+
+// Sidebar menu (Space)
+$space-sidebar-menu-icon-size: 32;
+
+// Color picker
+$color-picker-text-height: 1.75;
+$color-picker-margin: .5;
+$medium-border-radius: .125;

@@ -1,0 +1,263 @@
+.rw_search_item.rw_formatting_item {
+  .rw_search_module_container {
+    z-index: 100;
+    h2 {
+      margin-bottom: $content-spacing * 2 + px;
+      font-weight: 100;
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    // Multi column search result
+    &.rw_multi_column {
+      > div {
+        position: initial;
+      }
+    }
+
+    > div {
+      width: 100%;
+      position: relative;
+      max-width: 500px;
+      display: inline-block;
+
+      .rw_search_item {
+        height: $search-input-height + px;
+        line-height: $search-input-height + px;
+        width: 100%;
+        position: relative;
+
+        .rw_search_icon {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: $search-input-height + px;
+          line-height: $search-input-height + px;
+          width: $search-input-height + px;
+        }
+
+        .rw_loader_box {
+          display: none;
+          position: absolute;
+          padding: 0px;
+          right: ($search-input-height - 16) / 2 + px;
+          top: ($search-input-height - 16) / 2 + px;
+          line-height: 16px;
+          height: 16px;
+        }
+
+        input {
+          border: 0;
+          box-sizing: border-box;
+          height: $search-input-height + px;
+          line-height: $search-input-height + px;
+          padding: 0 $search-item-padding + px 0 $search-item-height + px;
+          width: 100%;
+          font-size: 14px;
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+          outline: 0;
+        }
+      }
+      .rw_search_module_results {
+        background: #fff;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        display: table;
+        table-layout: fixed;
+
+        > div {
+          display: table-cell;
+          padding: $content-spacing + px 0 $content-spacing + px $content-spacing + px;
+          &:last-child {
+            padding-right: $content-spacing + px;
+          }
+        }
+
+        h3 {
+          text-align: left;
+          text-transform: uppercase;
+          color: #999;
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+
+        ul {
+          padding: 0;
+          margin: 0;
+          li {
+            display: block;
+            a {
+              display: block;
+              text-align: left;
+              text-decoration: none;
+              color: $search-item-color;
+
+              .rw_item_icon {
+                float: left;
+                width: $search-item-height + px;
+                height: $search-item-height + px;
+                line-height: $search-item-height + px;
+                color: $search-item-icon-color;
+              }
+              .rw_item_content {
+                margin-left: $search-item-height + px;
+                padding-right: $search-item-padding + px;
+                line-height: $search-item-height + px;
+                display: block;
+                @include ellipsis();
+              }
+
+              &:hover {
+                background: #eee;
+                color: $search-item-color-hover;
+                cursor: pointer;
+                .rw_item_icon {
+                  color: $search-item-color-hover;
+                }
+              }
+            }
+
+            &.rw_selected {
+              a {
+                background: #f99723 !important;
+                color: #fff !important;
+                .rw_item_icon {
+                  color: #fff !important;
+                }
+              }
+            }
+          }
+        }
+
+        .rw_no_result_found {
+          padding: $content-spacing + px;
+          span {
+            color: $secondary-font-color;
+          }
+        }
+
+        // Request types styling
+        .rw_request_types_section {
+          ul li {
+            a {
+              .rw_item_icon {
+                width: $search-item-large-height + px;
+                height: $search-item-large-height + px;
+                line-height: $search-item-large-height + px;
+
+                img {
+                  margin: $search-item-padding + px;
+                  max-width: ($search-item-large-height) - ($search-item-padding * 2) + px;
+                  max-height: ($search-item-large-height) - ($search-item-padding * 2) + px;
+                }
+              }
+              .rw_item_content {
+                margin-left: $search-item-large-height + px;
+                padding-right: $search-item-padding + px;
+                min-height: $search-item-large-height + px;
+
+                span {
+                  line-height: 20px;
+                  display: block;
+                  white-space: normal;
+                  overflow: visible;
+
+                  &:last-child {
+                    padding-bottom: $search-item-padding + px;
+                  }
+
+                  &.rw_name {
+                    font-weight: bold;
+                    padding-top: $search-item-padding + px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.rw_searching {
+      .rw_search_item {
+        .rw_loader_box {
+          display: block;
+        }
+      }
+    }
+  }
+
+  //
+  // Dark search box theme
+  //
+  &.rw_search_box_theme_dark {
+    .rw_search_module_container {
+      > div {
+        .rw_search_item {
+          .rw_search_icon {
+            color: #999;
+          }
+
+          input {
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            color: #fff;
+          }
+
+          .rw_search_module_results {
+            background: #222;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+
+            ul {
+              li {
+                a {
+                  color: $dark-search-item-color;
+
+                  .rw_item_icon {
+                    color: $dark-search-item-icon-color;
+                  }
+
+                  &:hover {
+                    background: #333;
+                    color: $dark-search-item-color-hover;
+                    .rw_item_icon {
+                      color: $dark-search-item-color-hover;
+                    }
+                  }
+                }
+              }
+            }
+
+            .rw_no_result_found {
+              padding: $content-spacing + px;
+              span {
+                color: $dark-secondary-font-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // Dark search box theme
+  //
+  &.rw_search_box_theme_gray {
+    .rw_search_module_container {
+      > div {
+        .rw_search_item {
+          input {
+            background: #f6f6f6;
+            border: 1px solid #ddd;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
