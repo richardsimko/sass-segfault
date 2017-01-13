@@ -1,3 +1,13 @@
+$category-template-width: 110;
+$category-template-hover-background: #eee;
+$category-template-selected-background: #fff;
+$category-template-icon-size: 32;
+$highlight-color: #65dcfe;
+$iconfont-size-small:  12;
+$iconfont-size: 18;
+
+//ALL OF THESE ARE UNUSED IN THE EXAMPLE
+
 /**
  * Config
  */
@@ -6,7 +16,7 @@
 
 $button-height: 30;
 
-$highlight-color: #65dcfe;
+
 $text-color: #333;
 $text-secondary-color: #999;
 
@@ -63,9 +73,9 @@ $content-toolbar-item-color: #999;
 
 // Iconfont
 $iconfont-size-large: 22;
-$iconfont-size: 18;
+
 $iconfont-size-medium:  16;
-$iconfont-size-small:  12;
+
 $iconfont-size-xsmall:  9;
 
 // Admin category organizer
